@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#ffe8f0"
+    >
+
+    <meta
+        name="description"
+        content="Uma pergunta muito importante ❤️"
+    >
+
+    <title>Uma pergunta para você ❤️</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         FUNDO
+    ====================================================== -->
+
+    <div
+        class="background-hearts"
+        id="backgroundHearts"
+        aria-hidden="true"
+    ></div>
+
+
+    <div
+        class="background-glow"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- =====================================================
+         FOGO
+    ====================================================== -->
+
+    <div
+        class="fire"
+        id="fire"
+        aria-hidden="true"
+    >
+
+        <div class="flames">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <div
+            class="embers"
+            id="embers"
+        ></div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ESCURIDÃO
+    ====================================================== -->
+
+    <div
+        class="darkness"
+        id="darkness"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- =====================================================
+         OLHOS
+    ====================================================== -->
+
+    <div
+        class="evil-eyes"
+        id="evilEyes"
+        aria-hidden="true"
+    >
+
+        <div class="eye">
+
+            <div class="pupil"></div>
+
+        </div>
+
+        <div class="eye">
+
+            <div class="pupil"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOQUE PARA COMEÇAR
+
+         Garante um clique real antes de qualquer coisa.
+         Isso destrava o áudio no navegador (que só libera
+         som depois de um clique/toque genuíno) — sem isso,
+         os efeitos sonoros do "não" e o som da tela de
+         game over não tocam, porque eles são disparados
+         só por hover ou por um timeout.
+    ====================================================== -->
+
+    <div
+        class="start-overlay"
+        id="startOverlay"
+    >
+
+        <div class="start-content">
+
+            <div class="start-heart">
+                ❤️
+            </div>
+
+            <span class="eyebrow">
+                ANTES DE COMEÇAR
+            </span>
+
+            <h1>
+                Toque para abrir
+            </h1>
+
+            <p>
+                Recomendo deixar o som ligado
+                pra sentir a experiência completa. 🔊
+            </p>
+
+            <button
+                class="start-button"
+                id="startButton"
+                type="button"
+            >
+                Abrir ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO
+    ====================================================== -->
+
+    <main id="mainContent">
+
+
+        <!-- =================================================
+             PERGUNTA
+        ================================================== -->
+
+        <section
+            class="card question-card"
+            id="questionCard"
+        >
+
+
+            <!-- CORAÇÃO -->
+
+            <div class="main-heart">
+                ❤️
+            </div>
+
+
+
+            <!-- ETIQUETA -->
+
+            <span class="eyebrow">
+                TENHO UMA PERGUNTA...
+            </span>
+
+
+
+            <!-- TÍTULO -->
+
+            <h1 id="title">
+                Você quer namorar comigo?
+            </h1>
+
+
+
+            <!-- DESCRIÇÃO -->
+
+            <p
+                class="description"
+                id="description"
+            >
+
+                Já pensei em várias formas de perguntar isso. 
+                No final, decidi ser direto.
+
+            </p>
+
+
+
+            <!-- CONTADOR -->
+
+            <div class="counter-box">
+
+                <span>
+                    Tentativas de "não"
+                </span>
+
+                <strong id="counter">
+                    0
+                </strong>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ÁREA DOS BOTÕES
+            ================================================== -->
+
+            <div
+                class="play-zone"
+                id="playZone"
+            >
+
+
+                <!-- BOTÃO NÃO -->
+
+                <button
+                    class="choice-button no"
+                    id="noButton"
+                    type="button"
+                >
+
+                    <span>
+                        NÃO
+                    </span>
+
+                </button>
+
+
+
+                <!-- BOTÃO SIM -->
+
+                <button
+                    class="choice-button yes"
+                    id="yesButton"
+                    type="button"
+                >
+
+                    <span>
+                        SIM
+                    </span>
+
+                    <span class="button-heart">
+                        ❤️
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- REAÇÃO -->
+
+            <div
+                class="reaction"
+                id="reaction"
+                aria-live="polite"
+            ></div>
+
+
+
+            <!-- BARRA DE PERIGO -->
+
+            <div class="danger-container">
+
+                <div class="danger-label">
+
+                    <span>
+                        nível de teimosia
+                    </span>
+
+                    <span id="dangerPercent">
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div class="danger-bar">
+
+                    <div
+                        class="danger-fill"
+                        id="dangerFill"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PEQUENA DICA -->
+
+            <div
+                class="hint"
+                id="hint"
+            >
+
+                <span>💡</span>
+
+                <span>
+                    Dica: a resposta correta está
+                    bem ali.
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             AVISO FINAL
+
+             Aparece por alguns segundos assim que a
+             última tentativa de "não" é usada, antes
+             da tela de game over completa.
+        ================================================== -->
+
+        <section
+            class="final-warning"
+            id="finalWarning"
+            aria-hidden="true"
+        >
+
+            <p id="finalWarningText">
+                Você tem certeza que quer isso?
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             GAME OVER
+             
+             É UM OVERLAY INDEPENDENTE.
+             ISSO EVITA A TELA BRANCA.
+        ================================================== -->
+
+        <section
+            class="game-over-screen"
+            id="gameOverScreen"
+            aria-hidden="true"
+        >
+
+            <div class="go-static" aria-hidden="true"></div>
+            <div class="go-scanlines" aria-hidden="true"></div>
+            <div class="go-vignette" aria-hidden="true"></div>
+
+            <div
+                class="go-eyes"
+                id="goEyes"
+                aria-hidden="true"
+            ></div>
+
+            <div class="game-over-content" id="gameOverContent">
+
+
+                <div class="skull">
+                    💀
+                </div>
+
+
+                <div class="game-over-label" data-text="SEM SAÍDA">
+                    SEM SAÍDA
+                </div>
+
+
+                <h2>
+                    Não existe mais nenhum "não" pra tentar.
+                </h2>
+
+
+                <p>
+                    Todas as portas se fecharam.
+                </p>
+
+
+                <div class="game-over-message">
+                    Você não tem outra escolha a não ser aceitar o meu pedido. 😈❤️
+                </div>
+
+
+                <button
+                    class="final-yes-button"
+                    id="finalYesButton"
+                    type="button"
+                >
+
+                    ACEITAR ❤️
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRANSIÇÃO
+
+             Suaviza a virada do clima sombrio do
+             game over pra tela final romântica.
+        ================================================== -->
+
+        <section
+            class="transition-screen"
+            id="transitionScreen"
+            aria-hidden="true"
+        >
+
+            <div class="transition-content">
+
+                <div class="transition-heart">
+                    😳
+                </div>
+
+                <p class="transition-line transition-line-1">
+                    Peraí...
+                </p>
+
+                <p class="transition-line transition-line-2">
+                    Você aceitou?
+                </p>
+
+                <p class="transition-line transition-line-3">
+                    Sério mesmo?
+                </p>
+
+                <p class="transition-line transition-line-final">
+                    Eu não acredito! 🥹❤️
+                </p>
+
+                <p class="transition-hint">
+                    (toque pra continuar)
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TELA FINAL
+        ================================================== -->
+
+        <section
+            class="card final-card"
+            id="finalCard"
+        >
+
+
+            <!-- CORAÇÃO -->
+
+            <div class="final-heart">
+                🥹❤️
+            </div>
+
+
+
+            <!-- ETIQUETA -->
+
+            <span class="eyebrow">
+                EU SABIA...
+            </span>
+
+
+
+            <!-- TÍTULO -->
+
+            <h1>
+                Então é oficial! ❤️
+            </h1>
+
+
+
+            <!-- TEXTO -->
+
+            <p>
+
+                Agora começa uma nova parte
+                da nossa história.
+
+            </p>
+
+
+            <p>
+
+                Eu não sei tudo que o futuro
+                vai trazer, mas quero descobrir
+                junto com você.
+
+            </p>
+
+
+
+            <!-- MENSAGEM PERSONALIZÁVEL -->
+
+            <div class="love-message">
+
+                <div class="love-message-icon">
+                    💌
+                </div>
+
+                <p>
+
+                    <strong>
+
+                        Prometo fazer o meu melhor para
+                        contribuir com o nosso relacionamento,
+                        cuidar de você e construir momentos
+                        incríveis juntos. ❤️
+
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+
+            <!-- FRASE -->
+
+            <div class="final-quote">
+
+                "Agora temos uma história
+                para escrever juntos."
+
+                <span>
+                    ❤️
+                </span>
+
+            </div>
+
+
+
+            <!-- MÚSICA -->
+
+            <div class="music-card">
+
+                <div class="music-icon">
+                    🎵
+                </div>
+
+                <div class="music-info">
+
+                    <span>
+                        NOSSA MÚSICA
+                    </span>
+
+                    <strong>
+                        I Wanna Be Yours
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- PLAYER -->
+
+            <div class="youtube-container">
+
+                <iframe
+                    id="youtubePlayer"
+                    title="I Wanna Be Yours"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                ></iframe>
+
+            </div>
+
+
+
+            <!-- ESTATÍSTICA -->
+
+            <div
+                class="final-stat"
+                id="finalStat"
+            ></div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>
